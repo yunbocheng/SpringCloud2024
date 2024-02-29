@@ -12,8 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * @create 2023-12-22 14:50
  */
 @Configuration
-public class Swagger3Config
-{
+public class Swagger3Config {
     @Bean
     public GroupedOpenApi PayApi()
     {

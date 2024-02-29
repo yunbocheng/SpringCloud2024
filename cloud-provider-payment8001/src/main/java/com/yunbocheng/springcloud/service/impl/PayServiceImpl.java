@@ -1,6 +1,7 @@
 package com.yunbocheng.springcloud.service.impl;
 
 import com.yunbocheng.springcloud.entities.Pay;
+import com.yunbocheng.springcloud.entities.PayDTO;
 import com.yunbocheng.springcloud.mapper.PayMapper;
 import com.yunbocheng.springcloud.service.PayService;
 import jakarta.annotation.Resource;
@@ -12,13 +13,21 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class PayServiceImpl implements PayService {
-    @Resource
-    private PayMapper payMapper;
+
+    private final PayMapper payMapper;
+
+    public PayServiceImpl(PayMapper payMapper) {
+        this.payMapper = payMapper;
+    }
 
     @Override
-    public Pay getById(Integer id)
-    {
-        return payMapper.getById(id);
+    public Pay getPayById(Integer id) {
+        return payMapper.getPayById(id);
+    }
+
+    @Override
+    public boolean updatePay(PayDTO payDTO) {
+        return payMapper.updatePay(payDTO) > 0;
     }
 
 }

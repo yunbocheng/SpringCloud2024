@@ -1,6 +1,7 @@
 package com.yunbocheng.springcloud.service;
 
 import com.yunbocheng.springcloud.entities.Pay;
+import com.yunbocheng.springcloud.entities.PayDTO;
 
 /**
  * @auther chengyunbo
@@ -8,6 +9,8 @@ import com.yunbocheng.springcloud.entities.Pay;
  */
 public interface PayService {
 
-    Pay getById(Integer id);
+    Pay getPayById(Integer id);
+
+    boolean updatePay(PayDTO payDTO);
 
 }
