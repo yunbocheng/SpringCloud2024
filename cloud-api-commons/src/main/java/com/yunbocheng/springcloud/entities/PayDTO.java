@@ -26,4 +26,5 @@ public class PayDTO {
 
     private BigDecimal amount;
 
+    private Byte deleted;
 }

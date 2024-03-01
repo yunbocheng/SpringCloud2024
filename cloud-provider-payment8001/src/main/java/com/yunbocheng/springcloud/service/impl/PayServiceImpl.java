@@ -7,6 +7,8 @@ import com.yunbocheng.springcloud.service.PayService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @auther chengyunbo
  * @create 2023-12-21 17:30
@@ -26,8 +28,23 @@ public class PayServiceImpl implements PayService {
     }
 
     @Override
-    public boolean updatePay(PayDTO payDTO) {
+    public Boolean updatePay(PayDTO payDTO) {
         return payMapper.updatePay(payDTO) > 0;
+    }
+
+    @Override
+    public Boolean addPay(PayDTO payDTO) {
+        return payMapper.addPay(payDTO) > 0;
+    }
+
+    @Override
+    public Boolean delPayById(Integer id) {
+        return payMapper.delPayById(id) > 0;
+    }
+
+    @Override
+    public List<Pay> getPayAll() {
+        return payMapper.getPayAll();
     }
 
 }

@@ -29,12 +29,12 @@ public class Swagger3Config {
     public OpenAPI docsOpenApi()
     {
         return new OpenAPI()
-                .info(new Info().title("cloud2024")
+                .info(new Info().title("SpringCloud2024")
                         .description("通用设计rest")
                         .version("v1.0"))
                 .externalDocs(new ExternalDocumentation()
-                        .description("www.atguigu.com")
-                        .url("https://yiyan.baidu.com/"));
+                        .description("设计文档、笔记、源代码")
+                        .url("https://github.com/yunbocheng/SpringCloud2024"));
     }
 }
 
