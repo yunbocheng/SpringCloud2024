@@ -1,5 +1,6 @@
-package com.yunbocheng.springcloud.resp;
+package com.yunbocheng.springcloud.entities;
 
+import com.yunbocheng.springcloud.enums.ResultEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import java.util.HashMap;
@@ -51,7 +52,7 @@ public class R {
         return r;
     }
 
-    public static R error(ReturnCodeEnum resultEnum) {
+    public static R error(ResultEnum resultEnum) {
         R r = new R();
         r.setSuccess(false);
         r.setCode(resultEnum.getCode());

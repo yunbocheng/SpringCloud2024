@@ -1,4 +1,4 @@
-package com.yunbocheng.springcloud.resp;
+package com.yunbocheng.springcloud.enums;
 
 import lombok.Getter;
 
@@ -10,8 +10,7 @@ import java.util.Objects;
  * @create 2023-12-22 15:45
  */
 @Getter
-public enum ReturnCodeEnum
-{
+public enum ResultEnum {
     //1 举值
     /**操作失败**/
     RC999(999,"操作XXX失败"),
@@ -36,29 +35,27 @@ public enum ReturnCodeEnum
 
     INVALID_TOKEN(2001,"访问令牌不合法"),
     ACCESS_DENIED(2003,"没有权限访问该资源"),
+    ARGS_VALID_ERROR(1000, "参数校验错误"),
     CLIENT_AUTHENTICATION_FAILED(1001,"客户端认证失败"),
     USERNAME_OR_PASSWORD_ERROR(1002,"用户名或密码错误"),
     BUSINESS_ERROR(1004,"业务逻辑异常"),
     UNSUPPORTED_GRANT_TYPE(1003, "不支持的认证模式");
 
-    //如何定义一个通用的枚举类，对于枚举编写，阳哥小口诀
-    //举值-构造-遍历
 
     //2 构造
     private final Integer code; // 自定义的状态码
     private final String message; // 自定义的描述信息
 
-    ReturnCodeEnum(Integer code, String message)
-    {
+    ResultEnum(Integer code, String message) {
         this.code = code;
         this.message = message;
     }
 
     //3 遍历
     //3.1 传统版
-    public static ReturnCodeEnum getReturnCodeEnumV1(Integer code)
+    public static ResultEnum getReturnCodeEnumV1(Integer code)
     {
-        for (ReturnCodeEnum element : ReturnCodeEnum.values()) {
+        for (ResultEnum element : ResultEnum.values()) {
             if(Objects.equals(element.getCode(), code))
             {
                 return element;
@@ -67,8 +64,8 @@ public enum ReturnCodeEnum
         return null;
     }
     //3.2 Stream流式计算版
-    public static ReturnCodeEnum getReturnCodeEnumV2(Integer code)
+    public static ResultEnum getReturnCodeEnumV2(Integer code)
     {
-        return Arrays.stream(ReturnCodeEnum.values()).filter(x -> x.getCode().equals(code)).findFirst().orElse(null);
+        return Arrays.stream(ResultEnum.values()).filter(x -> x.getCode().equals(code)).findFirst().orElse(null);
     }
 }

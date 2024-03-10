@@ -12,6 +12,9 @@
     <modules>
         <module>cloud-provider-payment8001</module>
         <module>cloud-api-commons</module>
+        <module>cloud-consumer-order80</module>
+        <module>cloud-provider-payment8002</module>
+        <module>cloud-consumer-feign-order</module>
     </modules>
 
     <properties>
@@ -30,8 +33,14 @@
         <spring.boot.test.version>3.1.5</spring.boot.test.version>
         <spring.boot.version>3.1.7</spring.boot.version>
         <spring.cloud.version>2022.0.4</spring.cloud.version>
-
+        <starter.bootstrap.version>4.0.4</starter.bootstrap.version>
+        <consul.config.version>4.0.3</consul.config.version>
         <spring.cloud.alibaba.version>2022.0.0.0-RC2</spring.cloud.alibaba.version>
+        <consul.version>3.1.2</consul.version>
+        <load-balancer.version>4.0.4</load-balancer.version>
+        <feign.version>1.4.7.RELEASE</feign.version>
+        <resilience4j.version>3.1.0</resilience4j.version>
+        <aop.version>3.0.2</aop.version>
         <micrometer-tracing.version>1.2.0</micrometer-tracing.version>
         <micrometer-observation.version>1.12.0</micrometer-observation.version>
         <feign-micrometer.version>12.5</feign-micrometer.version>
@@ -69,6 +78,11 @@
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis.springboot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+                <version>${consul.version}</version>
             </dependency>
             <!--Mysql数据库驱动8 -->
             <dependency>
@@ -127,6 +141,69 @@
                 <scope>test</scope>
             </dependency>
 
+            <!--micrometer-tracing-bom导入链路追踪版本中心  1-->
+            <dependency>
+                <groupId>io.micrometer</groupId>
+                <artifactId>micrometer-tracing-bom</artifactId>
+                <version>${micrometer-tracing.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--micrometer-tracing指标追踪  2-->
+            <dependency>
+                <groupId>io.micrometer</groupId>
+                <artifactId>micrometer-tracing</artifactId>
+                <version>${micrometer-tracing.version}</version>
+            </dependency>
+            <!--micrometer-tracing-bridge-brave适配zipkin的桥接包 3-->
+            <dependency>
+                <groupId>io.micrometer</groupId>
+                <artifactId>micrometer-tracing-bridge-brave</artifactId>
+                <version>${micrometer-tracing.version}</version>
+            </dependency>
+            <!--micrometer-observation 4-->
+            <dependency>
+                <groupId>io.micrometer</groupId>
+                <artifactId>micrometer-observation</artifactId>
+                <version>${micrometer-observation.version}</version>
+            </dependency>
+            <!--feign-micrometer 5-->
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-micrometer</artifactId>
+                <version>${feign-micrometer.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-bootstrap</artifactId>
+                <version>${starter.bootstrap.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-consul-config</artifactId>
+                <version>${consul.config.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-loadbalancer</artifactId>
+                <version>${load-balancer.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-feign</artifactId>
+                <version>${feign.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
+                <version>${resilience4j.version}</version>
+            </dependency>
+            <!-- 由于断路保护等需要AOP实现，所以必须导入AOP包 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${aop.version}</version>
+            </dependency>
             <!--micrometer-tracing-bom导入链路追踪版本中心  1-->
             <dependency>
                 <groupId>io.micrometer</groupId>

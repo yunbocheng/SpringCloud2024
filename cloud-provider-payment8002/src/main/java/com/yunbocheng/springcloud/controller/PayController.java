@@ -9,8 +9,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @auther chengyunbo
@@ -61,16 +61,16 @@ public class PayController {
         return R.ok().data("data", payService.delPayById(id));
     }
 
-//    @Value(value = "${server.port}")
-//    private String port;
-//
-//    @Value(value = "${chengyunbo.info}")
-//    private String info;
-//
-//    @GetMapping(value = "/getInfo")
-//    public void getInfo() {
-//        System.out.println(port);
-//        System.out.println(info);
-//    }
+    @Value(value = "${server.port}")
+    private String port;
+
+    @Value(value = "${chengyunbo.info}")
+    private String info;
+
+    @GetMapping(value = "/getInfo")
+    public void getInfo() {
+        System.out.println(port);
+        System.out.println(info);
+    }
 
 }
