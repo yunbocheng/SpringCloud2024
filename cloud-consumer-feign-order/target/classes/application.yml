@@ -47,13 +47,13 @@ spring:
       hc5:
         enable: true
     # 开启 openFeign 的请求和响应数据压缩功能
-    compression:
-      request:
-        enabled: true
-        min-request-size: 2048 #最小触发压缩的大小
-        mime-types: text/xml,application/xml,application/json #触发压缩数据类型
-      response:
-        enabled: true
+#    compression:
+#      request:
+#        enabled: true
+#        min-request-size: 2048 #最小触发压缩的大小
+#        mime-types: text/xml,application/xml,application/json #触发压缩数据类型
+#      response:
+#        enabled: true
     # 开启circuitbreaker和分组激活 spring.cloud.openfeign.circuitbreaker.enabled
     circuitbreaker:
       enabled: true
@@ -114,10 +114,10 @@ logging:
 #      cloud-payment-service:
 #        baseConfig: default
 
-management:
-  zipkin:
-    tracing:
-      endpoint: http://localhost:9411/api/v2/spans
-  tracing:
-    sampling:
-      probability: 1.0 #采样率默认为0.1(0.1就是10次只能有一次被记录下来)，值越大收集越及时。
+#management:
+#  zipkin:
+#    tracing:
+#      endpoint: http://localhost:9411/api/v2/spans
+#  tracing:
+#    sampling:
+#      probability: 1.0 #采样率默认为0.1(0.1就是10次只能有一次被记录下来)，值越大收集越及时。

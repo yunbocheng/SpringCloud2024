@@ -1,0 +1,10 @@
+com\yunbocheng\springcloud\apis\PayFeignSentinelApi.class
+com\yunbocheng\springcloud\entities\PayDTO.class
+com\yunbocheng\springcloud\entities\R.class
+com\yunbocheng\springcloud\entities\Pay.class
+com\yunbocheng\springcloud\CloudApiCommons.class
+com\yunbocheng\springcloud\enums\ResultEnum.class
+com\yunbocheng\springcloud\exception\AppException.class
+com\yunbocheng\springcloud\exception\ExceptionAdvice.class
+com\yunbocheng\springcloud\apis\PayFeignApi.class
+com\yunbocheng\springcloud\apis\PayFeignSentinelApiFallback.class
